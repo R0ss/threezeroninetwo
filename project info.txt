@@ -1,0 +1,52 @@
+Book one way flights between: Mississauga campus and St. George campus
+
+Assumptions
+
+-The TA will populate flight list before testing the functions.
+
+-Tickets cannot be bought for the current date.
+
+-Tickets can be bought at most 2 weeks in advance.
+
+-Only one ticket can be bought per session.
+
+-All tickets cost $20
+
+-only one user uses the site at a time.
+
+-Each flight can fit at most 3 people.
+
+-Flights occur at 8am, 10am, 2pm, and 5pm.
+
+-To book 'index.php':
+	1. a customer picks a campus and a date to leave. 
+	2.The program will generate a list of available flights.
+	3.The user picks one of the flights.
+	4.The user picks a seat from image.
+		white = available
+		green = user choice
+		yellow = occupied
+	5. The site will then request:
+		1.First & last name
+		2.credit card number & expiration date
+		-credit card has 16 digits
+		-expiration must be MM/YY
+		-The card should not be expired
+		-None can be empty
+	
+	6. The site should provide a summary and way to print a page: http://www.javascripter.net/faq/printing.htm
+	
+-Create admin page 'admin.php':
+	-delete all flight and ticket data.
+	-option to populate the table for 14 days
+	-option to get information about all tickets sold since site began with:
+		1.flight date
+		2.seat number
+		3.customer first and last name
+		4.credit card number and expiration
+
+-create README file explaining how it works.
+
+-Do not submit sql database
+	
+	
