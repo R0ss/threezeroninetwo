@@ -48,5 +48,3 @@ Assumptions
 -create README file explaining how it works.
 
 -Do not submit sql database
-	
-	
