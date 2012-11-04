@@ -26,7 +26,7 @@
 	
 	<div id="wrapper">
 	  <div id="header">
-	  <?php $this->load->view('header');?>
+	  <?php $this->load->view('header_view');?>
 	  </div>
 
 	  <div id="main">
@@ -34,7 +34,7 @@
 	  </div>
 	  	  
 	  <div id="footer"> 
-	  <?php $this->load->view('footer');?>
+	  <?php $this->load->view('footer_view');?>
 	  </div>
 	</div>
 	

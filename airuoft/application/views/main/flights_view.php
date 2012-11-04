@@ -1,5 +1,5 @@
 <?php
-echo anchor('','Back') . "<br />";
+echo anchor('main','Back') . "<br />";
 
 
 //And if the $site variable is not empty we echo it's content by using the generate method of the table class / library
