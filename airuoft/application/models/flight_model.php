@@ -7,7 +7,8 @@ class Flight_model extends CI_Model {
 								   FROM flight f, campus c, timetable t
 								   WHERE f.date = '{$data['date']}'
 								   AND c.id = '{$data['campus']}'
-								   AND f.timetable_id = t.id");
+								   AND f.timetable_id = t.id
+								   AND f.available > 0");
 		return $query;
 	}
 

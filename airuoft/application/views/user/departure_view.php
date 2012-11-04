@@ -1,8 +1,15 @@
 <?php
+
+//Go back to previous page
 echo anchor('user','Back') . "<br />";
 
-//And if the $site variable is not empty we echo it's content 
+//And if the $departures variable is not empty we echo its content 
 //by using the generate method of the table class / library
-if(!empty($departures)) echo $this->table->generate($departures); 
+
+if(!empty($departures)){
+	echo $this->table->generate($departures); 
+}
+
+
 
 ?>

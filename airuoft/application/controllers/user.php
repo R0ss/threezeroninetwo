@@ -36,10 +36,14 @@ class User extends CI_Controller {
    			
    			//Prepare the array that will contain the data
     		$table = array();
-    		$table[] = array('From','Time','Date','Available');
+    		$table[] = array('From','Time','Date','Available', 'Select Flight');
     		
    			foreach ($departures->result() as $row){
-   				$table[] = array($row->from, $row->time,$row->date,$row->available);
+   				
+   				// Allow users to select flights for a perticular time.
+   				$action = anchor("user/selectFlight/". $row->date ."/". $row->time ."/", "Buy Now!");
+   				
+   				$table[] = array($row->from, $row->time,$row->date,$row->available, $action);
    			}
    			//Next step is to place our created array into a new array variable, 
    			//one that we are sending to the view.    			
