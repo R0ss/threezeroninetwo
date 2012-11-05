@@ -1,9 +1,19 @@
 <?php
 class Flight_model extends CI_Model {
 	
-	//Need to add in variables...
+	//Get list of available seats on flight
+	function get_seats($id){
+		$query = $this->db->query("SELECT t.seat
+									FROM ticket t
+									WHERE t.flight_id = '{$id}'");
+		
+		return $query;
+		
+	}
+	
+	//Get list of available flights on specified date and location
 	function get_departures($data){
-		$query = $this->db->query("SELECT c.name as 'from', t.time, f.date, f.available
+		$query = $this->db->query("SELECT c.name as 'from', t.time, f.date, f.available, f.id
 								   FROM flight f, campus c, timetable t
 								   WHERE f.date = '{$data['date']}'
 								   AND c.id = '{$data['campus']}'
