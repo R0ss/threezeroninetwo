@@ -27,7 +27,6 @@ echo form_fieldset_close();
 echo form_close();
 ?>
 
-
 </div>
 
 <div id='pright'>
@@ -39,6 +38,4 @@ echo form_close();
     echo anchor('welcome/cart/'.$list['id'],'add to cart') . "\n</div>";
   }
 ?>
-
-
 </div>

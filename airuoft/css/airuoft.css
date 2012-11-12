@@ -1,0 +1,38 @@
+@CHARSET "ISO-8859-1";
+
+/* Position seats */
+#seats{
+	position:relative
+	}
+	
+div.seat{
+	position:absolute;
+	top:328px;
+	width:40px;
+	height:40px;
+}
+
+#seat_0{
+	left:25px;
+	}
+	
+#seat_1{
+	left:149px;
+	}
+
+#seat_2{
+	left:202px;
+	}
+
+/* Position customer information boxes in-line */
+
+.form{
+
+	float:left;
+	}
+
+/* Center ticket data  */
+
+td{
+	text-align:center;
+}
