@@ -90,34 +90,33 @@ class Index extends CI_Controller {
    		$data['main']='index/customerInfo_view';
 
    		$this->form_validation->set_rules('fname', 'First name', 'trim
-													   				.|alpha
-													   				.|required'
-   																	);
+					   				.|alpha
+					   				.|required'
+   									);
    		$this->form_validation->set_rules('lname', 'Last Name', 'trim
-   																	.|alpha
-   																	.|required'
-   																	);
+   									.|alpha
+   									.|required'
+   									);
    		$this->form_validation->set_rules('cardNumber', 'Credit card number Confirmation','trim
-													   				.|required
-													   				.|is_natural
-													   				.|greater_than[0]
-													   				.|exact_length[16]'
-   																	);
+									.|required
+									.|is_natural
+									.|greater_than[0]
+									.|exact_length[16]'
+	   								);
    		$this->form_validation->set_rules('expirationM', 'Expiration month', 'trim
-													   				.|required
-													   				.|is_natural
-													   				.|less_than[13]
-													   				.|greater_than[0]
-													   				.|exact_length[2]'
-													   				);
+									.|required
+									.|is_natural
+									.|less_than[13]
+									.|greater_than[0]
+									.|exact_length[2]'
+									);
    		$this->form_validation->set_rules('expirationY', 'Expiration year', 'trim
-													   				.|required
-													   				.|is_natural
-													   				.|exact_length[2]
-													   				.|greater_than[0]
-													   				.|callback_expiry_check'
-													   				);
-   		
+									.|required
+									.|is_natural
+									.|exact_length[2]
+									.|greater_than[0]
+									.|callback_expiry_check'
+									);
    		// Redirect user to correct form, until it satisfies the requirements
    		if ($this->form_validation->run() == FALSE){
    			$this->load->view('template_view', $data);
