@@ -89,44 +89,45 @@ class Index extends CI_Controller {
    		//Now we are prepared to call the view
    		$data['main']='index/customerInfo_view';
 
-   		$this->form_validation->set_rules('fname', 'First name', 'trim
-					   				.|alpha
-					   				.|required'
-   									);
-   		$this->form_validation->set_rules('lname', 'Last Name', 'trim
-   									.|alpha
-   									.|required'
-   									);
-   		$this->form_validation->set_rules('cardNumber', 'Credit card number Confirmation','trim
-									.|required
-									.|is_natural
-									.|greater_than[0]
-									.|exact_length[16]'
-	   								);
-   		$this->form_validation->set_rules('expirationM', 'Expiration month', 'trim
-									.|required
-									.|is_natural
-									.|less_than[13]
-									.|greater_than[0]
-									.|exact_length[2]'
-									);
-   		$this->form_validation->set_rules('expirationY', 'Expiration year', 'trim
-									.|required
-									.|is_natural
-									.|exact_length[2]
-									.|greater_than[0]
-									.|callback_expiry_check'
-									);
+   		$this->form_validation->set_rules('fname', 'First name', 'trim'
+													   				.'|alpha'
+													   				.'|required'
+   																	);
+   		$this->form_validation->set_rules('lname', 'Last Name', 'trim'
+   																	.'|alpha'
+   																	.'|required'
+   																	);
+   		$this->form_validation->set_rules('cardNumber', 'Credit card number Confirmation','trim'
+   																	.'|required'
+													   				.'|is_natural'
+													   				.'|greater_than[0]'
+													   				.'|exact_length[16]'
+   																	);
+   		$this->form_validation->set_rules('expirationM', 'Expiration month', 'trim'
+													   				.'|required'
+													   				.'|is_natural'
+													   				.'|less_than[13]'
+													   				.'|greater_than[0]'
+													   				.'|exact_length[2]'
+													   				);
+   		$this->form_validation->set_rules('expirationY', 'Expiration year', 'trim'
+													   				.'|required'
+													   				.'|is_natural'
+													   				.'|exact_length[2]'
+													   				.'|greater_than[0]'
+													   				.'|callback_expiry_check'
+													   				);
+   		
    		// Redirect user to correct form, until it satisfies the requirements
    		if ($this->form_validation->run() == FALSE){
    			$this->load->view('template_view', $data);
    		}else{	   	
    			// Store all POST data in a session
-   			$this->saveCredentials($query, $sid);
+   			$this->saveCredentials($sid, $flightID);
    			
    			// Commit successful transaction to database ticket table and provide a receipt
    			$this->index_model->save_flight($flightID, $sid);
-   			
+   			   			   			
    			//prevent user from inserting duplicate tickets via resfresh
    			redirect('index/load_receipt');
    		}	
@@ -148,9 +149,9 @@ class Index extends CI_Controller {
    	}
    	
    	// Saves all POST data before redirect clears it.
-   	function saveCredentials($query, $sid){
+   	function saveCredentials($sid, $flightID){
    		$this->session->set_userdata('seat', $sid );
-   		$this->session->set_userdata('flightInfo', $query);
+   		$this->session->set_userdata('flightID', $flightID );
    		$this->session->set_userdata('fname', $this->input->post('fname'));
    		$this->session->set_userdata('lname', $this->input->post('lname'));
    		$this->session->set_userdata('cardNumber', $this->input->post('cardNumber'));
@@ -160,6 +161,13 @@ class Index extends CI_Controller {
    	
    	// Save transaction and provide receipt to user
    	function load_receipt(){
+   		$flightID = $this->session->userdata('flightID');
+   		
+   		//query db for information about flight
+   		$this->load->model('index_model');
+   		$query = $this->index_model->get_flightInfo($flightID);
+   		$data['flightData'] = $query;
+   		
    		$data['main']='index/customerReceipt';
    		$this->load->view('template_view', $data);
    	}

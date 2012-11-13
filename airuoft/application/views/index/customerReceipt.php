@@ -2,12 +2,10 @@
 
 <?php //Go back to previous page
 echo anchor('index','Back') . "<br />";
- 
+
 //Create table with flight data
-echo $this->table->generate(
-							$this->session->userdata('flightInfo')
-							);
-?> 
+echo $this->table->generate($flightData); ?> 
+
 <br>
 	Seat Number: <?php echo $this->session->userdata('seat') ?> <br>
 	Cost: $20 CDN (tax included) <br>

@@ -9,7 +9,7 @@
 		echo $this->table->generate($departures); 
 	} else {
 			$leaving_from = ($campus == 1 ? "UofT St. George" : "UofT Mississauga");
-			echo "Sorry, it appears there are no available flights on $date".
+			echo "Sorry, it appears there are no available flights on $date ".
 				 "from $leaving_from campus. Please select a different date.";
 	}
 ?>
