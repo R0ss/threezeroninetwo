@@ -1,6 +1,6 @@
 <?php
 //Go back to index page
-echo anchor('index','Main Page') . "<br /><br />";
+echo anchor('index','Main Page') . "<br />";
 ?>
 
 <h3>Admin controls</h3>

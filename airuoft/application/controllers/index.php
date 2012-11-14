@@ -37,7 +37,7 @@ class Index extends CI_Controller {
     	if ($departures->num_rows() > 0){
 	   		//Prepare the array that will contain the data
 	   		$table = array();
-	   		$table[] = array('From','Time','Date','Available', 'Select Flight');
+	   		$table[] = array('From','Time','Date','Available', 'Click Below');
 	    		
 	   		foreach ($departures->result() as $row){
 	    				
@@ -90,11 +90,9 @@ class Index extends CI_Controller {
    		$data['main']='index/customerInfo_view';
 
    		$this->form_validation->set_rules('fname', 'First name', 'trim'
-													   				.'|alpha'
-													   				.'|required'
+   																	.'|required'
    																	);
    		$this->form_validation->set_rules('lname', 'Last Name', 'trim'
-   																	.'|alpha'
    																	.'|required'
    																	);
    		$this->form_validation->set_rules('cardNumber', 'Credit card number Confirmation','trim'
@@ -168,7 +166,7 @@ class Index extends CI_Controller {
    		$query = $this->index_model->get_flightInfo($flightID);
    		$data['flightData'] = $query;
    		
-   		$data['main']='index/customerReceipt';
+   		$data['main']='index/customerReceipt_view';
    		$this->load->view('template_view', $data);
    	}
 }

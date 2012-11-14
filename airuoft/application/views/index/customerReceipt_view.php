@@ -21,4 +21,4 @@ echo $this->table->generate($flightData); ?>
 	<hr>
 
 <h3>Prepare to fly! <em>(Click the image to print a summary page)</em> </h3>
-	<img id="summary" src=<?php echo site_url('images')."/heli.jpg"?>>
+	<img id="summary" src=<?php echo site_url('images')."/airuoft_smaller.png"?>>

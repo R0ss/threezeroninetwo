@@ -1,5 +1,5 @@
-<h3>Please select an available seat (white square):</h3>
-
+<h3>Your current seat is flashing (green)</h3>
+<h4>Any other available seats will be white</h4>
 <?php
 //Go back to previous page
 echo anchor('index','Back') . "<br />";
@@ -11,7 +11,7 @@ if(!empty($seat)){
 ?>	
 	<style type="text/css">
 		#seat_<?php echo $taken_seat?>{
-			background:yellow
+			background:yellow;
 			}
 	</style>
 <?php 

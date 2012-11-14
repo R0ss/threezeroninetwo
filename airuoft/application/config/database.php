@@ -48,10 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = '127.0.0.1';
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'airuoft';
-$db['default']['database'] = 'airuoft';  
+$db['default']['hostname'] = 'bungle07.cs.toronto.edu'; //127.0.0.1 bungle07.cs.toronto.edu
+$db['default']['username'] = 'c2gatihr'; //root c2gatihr
+$db['default']['password'] = '74975658315'; //airuoft 74975658315
+$db['default']['database'] = 'c2gatihr'; //airuoft c2gatihr
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

@@ -17,7 +17,7 @@
 		<script type="text/javascript" src="<?php echo base_url();?>js/customtools.js" ></script>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
 		<script type="text/javascript" src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
-		<script type="text/javascript" src="<?php echo base_url();?>js/airuoft.js" ></script>
+		<script type="text/javascript" src="<?php echo base_url();?>js/index_view.js" ></script>
 	</head>
 	<body>
 		<div id="wrapper">
